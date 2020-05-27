@@ -1,0 +1,5 @@
+# Make defines
+
+GO = go
+CFLAGS = 
+
