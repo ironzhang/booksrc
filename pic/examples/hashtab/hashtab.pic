@@ -1,4 +1,5 @@
-.PSdefine ndblock {
+.PS
+define ndblock {
 	box wid boxwid/2 ht boxht/2
 	down; box same with .t at bottom of last box; box same
 }
@@ -26,4 +27,5 @@ spline -> right .3 from 2nd last box to D3.sw + (dx,0)
 circlerad = .3
 circle invis "ndblock" at last box.e + (1.2,.2)
 arrow dashed from last circle.w to last box chop 0 chop .3
-box invis wid 2*boxwid "ndtable:" with .e at Start.w.PE
+box invis wid 2*boxwid "ndtable:" with .e at Start.w
+.PE

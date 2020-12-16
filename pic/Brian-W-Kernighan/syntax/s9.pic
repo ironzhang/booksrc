@@ -1,0 +1,14 @@
+.PS
+box ht 0.2 wid 0.2 at 0,0 "1"
+move right 0.5					# or "move to 0.5,0"
+box ht 0.2 wid 0.2 "2"
+move right 0.5					# or "move 0.5" or "move same"
+box ht 0.2 wid 0.2 "3"
+
+"+" at 0,0.5
+arc -> from 0.5,0.5 to 0,1 rad 2
+arc -> cw from 0,0.5 to 0.5,1 rad 2
+
+arc -> cw from 0,2 to 4,2 rad 15
+
+.PE
