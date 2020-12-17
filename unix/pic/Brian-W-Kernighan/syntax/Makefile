@@ -1,6 +1,7 @@
 # Makefile
 
 PIC = pic
+ROFF = groff
 CONVERT = convert
 
 all_pic = $(wildcard *.pic)
@@ -10,7 +11,7 @@ all_png = $(all_pic:.pic=.png)
 all: $(all_eps) $(all_png)
 
 %.eps: %.pic
-	$(PIC) $^ | groff | ps2eps > $@
+	$(ROFF) -Kutf8 -p $^ | ps2eps > $@
 
 %.png: %.eps
 	$(CONVERT) -density 600 $^ -resize 100% $@
