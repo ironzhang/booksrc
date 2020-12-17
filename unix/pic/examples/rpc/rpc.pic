@@ -1,0 +1,63 @@
+.PS 4
+
+w=0.4; dw=0.1; h=0.2; dh=0.1
+
+RPC_TOOL: box ht h wid 9*w "rpc code genreate tool/platform" shaded "lightblue"
+
+boxht=5*h+4*dh; boxwid=w+2*dw
+LANGUAGE_BOX: box with .nw at RPC_TOOL.sw + (0, -dh/2)
+PROTOCOL_BOX: box with .nw at LANGUAGE_BOX.ne + (dw, 0)
+FUNCTION_BOX: box ht boxht/2 - dh/4 wid RPC_TOOL.wid - 2*boxwid - 2*dw with .nw at PROTOCOL_BOX.ne + (dw, 0)
+FRAMEWORK_BOX: box ht FUNCTION_BOX.ht wid FUNCTION_BOX.wid with .t at FUNCTION_BOX.s + (0, -dh/2)
+
+LANGUAGE: [
+	boxht=h; boxwid=w; moveht=dh/2
+	down
+	box invis "langages"; move
+	box "go"; move
+	box "php"; move
+	box "java"; move
+	box "cpp"; move
+] with .center at LANGUAGE_BOX.center + (dw/4, -dh/8)
+
+PROTOCOL: [
+	boxht=h; boxwid=w; moveht=dh/2
+	down
+	box invis "protocols"; move
+	box "http"; move
+	box "thrift"; move
+	box "grpc"; move
+	box "dubbo"; move
+] with .center at PROTOCOL_BOX.center + (dw/4, -dh/8)
+
+FUNCTION: [
+	boxht=h-dh/2; boxwid=w+dw; movewid=dw/2; moveht=dh/2 
+	move right 2*boxwid; box invis "functions"; move left 3*boxwid; move down boxht
+	right
+BOX1:	box "discovry"; move
+BOX2:	box "balance"; move
+BOX3:	box "fault"; move
+BOX4:	box "schedule"; move
+
+	box "metrics" with .center at BOX1.center - (0, h+dh/2)
+	box "trace" with .center at BOX2.center - (0, h+dh/2)
+	box "break" with .center at BOX3.center - (0, h+dh/2)
+	box "config" with .center at BOX4.center - (0, h+dh/2)
+] with .center at FUNCTION_BOX.center + (dw/4, -dh/8)
+
+FRAMEWORK: [
+	boxht=h-dh/2; boxwid=w+dw; movewid=dw/2; moveht=dh/2 
+	move right 2*boxwid; box invis "frameworks"; move left 3*boxwid; move down boxht
+	right
+BOX1:	box "http mw"; move
+BOX2:	box "thrift mw"; move
+BOX3:	box "grpc mw"; move
+BOX4:	box "brpc mw"; move
+
+	box "httpcore" with .center at BOX1.center - (0, h+dh/2)
+	box "thriftcore" with .center at BOX2.center - (0, h+dh/2)
+	box "grpccore" with .center at BOX3.center - (0, h+dh/2)
+	box "brpccore" with .center at BOX4.center - (0, h+dh/2)
+] with .center at FRAMEWORK_BOX.center + (dw/4, -dh/8)
+
+.PE
