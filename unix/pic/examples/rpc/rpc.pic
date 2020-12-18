@@ -1,8 +1,9 @@
-.PS 4
+.ft STSong
+.PS 2.5
 
 w=0.4; dw=0.1; h=0.2; dh=0.1
 
-RPC_TOOL: box ht h wid 9*w "rpc code genreate tool/platform" shaded "lightblue"
+RPC_TOOL: box ht h wid 9*w "\s6统一代码生成工具/平台" shaded "lightblue"
 
 boxht=5*h+4*dh; boxwid=w+2*dw
 LANGUAGE_BOX: box with .nw at RPC_TOOL.sw + (0, -dh/2)
@@ -13,51 +14,51 @@ FRAMEWORK_BOX: box ht FUNCTION_BOX.ht wid FUNCTION_BOX.wid with .t at FUNCTION_B
 LANGUAGE: [
 	boxht=h; boxwid=w; moveht=dh/2
 	down
-	box invis "langages"; move
-	box "go"; move
-	box "php"; move
-	box "java"; move
-	box "cpp"; move
+	box invis "\s5语言"; move
+	box "\s4go"; move
+	box "\s4php"; move
+	box "\s4java"; move
+	box "\s4cpp" shaded "red"; move
 ] with .center at LANGUAGE_BOX.center + (dw/4, -dh/8)
 
 PROTOCOL: [
 	boxht=h; boxwid=w; moveht=dh/2
 	down
-	box invis "protocols"; move
-	box "http"; move
-	box "thrift"; move
-	box "grpc"; move
-	box "dubbo"; move
+	box invis "\s5协议"; move
+	box "\s4http"; move
+	box "\s4thrift"; move
+	box "\s4grpc"; move
+	box "\s4dubbo" shaded "red"; move
 ] with .center at PROTOCOL_BOX.center + (dw/4, -dh/8)
 
+box invis "\s5服务治理" with .center at FUNCTION_BOX.center + (0, 2*dh)
 FUNCTION: [
 	boxht=h-dh/2; boxwid=w+dw; movewid=dw/2; moveht=dh/2 
-	move right 2*boxwid; box invis "functions"; move left 3*boxwid; move down boxht
-	right
-BOX1:	box "discovry"; move
-BOX2:	box "balance"; move
-BOX3:	box "fault"; move
-BOX4:	box "schedule"; move
+	move down 2*dh; right
+BOX1:	box "\s4服务发现"; move
+BOX2:	box "\s4负载均衡"; move
+BOX3:	box "\s4故障注入"; move
+BOX4:	box "\s4流量调度"; move
 
-	box "metrics" with .center at BOX1.center - (0, h+dh/2)
-	box "trace" with .center at BOX2.center - (0, h+dh/2)
-	box "break" with .center at BOX3.center - (0, h+dh/2)
-	box "config" with .center at BOX4.center - (0, h+dh/2)
+	box "\s4指标" with .center at BOX1.center - (0, h+dh/2)
+	box "\s4trace" with .center at BOX2.center - (0, h+dh/2)
+	box "\s4熔断" with .center at BOX3.center - (0, h+dh/2)
+	box "\s4配置下发" with .center at BOX4.center - (0, h+dh/2)
 ] with .center at FUNCTION_BOX.center + (dw/4, -dh/8)
 
+box invis "\s5框架" with .center at FRAMEWORK_BOX.center + (0, 2*dh)
 FRAMEWORK: [
 	boxht=h-dh/2; boxwid=w+dw; movewid=dw/2; moveht=dh/2 
-	move right 2*boxwid; box invis "frameworks"; move left 3*boxwid; move down boxht
-	right
-BOX1:	box "http mw"; move
-BOX2:	box "thrift mw"; move
-BOX3:	box "grpc mw"; move
-BOX4:	box "brpc mw"; move
+	move down 2*dh; right
+BOX1:	box "\s4http中间件"; move
+BOX2:	box "\s4thrift中间件"; move
+BOX3:	box "\s4grpc中间件"; move
+BOX4:	box "\s4brpc中间件" shaded "red"; move
 
-	box "httpcore" with .center at BOX1.center - (0, h+dh/2)
-	box "thriftcore" with .center at BOX2.center - (0, h+dh/2)
-	box "grpccore" with .center at BOX3.center - (0, h+dh/2)
-	box "brpccore" with .center at BOX4.center - (0, h+dh/2)
+	box "\s4httprpc框架" with .center at BOX1.center - (0, h+dh/2)
+	box "\s4thrifrpc框架" with .center at BOX2.center - (0, h+dh/2)
+	box "\s4grpc框架" with .center at BOX3.center - (0, h+dh/2)
+	box "\s4brpc框架" shaded "red" with .center at BOX4.center - (0, h+dh/2)
 ] with .center at FRAMEWORK_BOX.center + (dw/4, -dh/8)
 
 .PE
