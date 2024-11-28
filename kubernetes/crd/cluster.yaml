@@ -1,0 +1,17 @@
+apiVersion: "superdns.com/v1"
+kind: Cluster
+metadata:
+  name: hna-v-nginx-cluster
+  namespace: superdns
+  labels:
+    domain: http.nginx
+spec:
+  domain: "http.nginx"
+  cluster: "hna-v"
+  endpoints:
+   - addr: "127.0.0.1:8000"
+     state: "enabled"
+     weight: 100
+   - addr: "127.0.0.1:8001"
+     state: "disabled"
+     weight: 50

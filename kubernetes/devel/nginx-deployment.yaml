@@ -2,10 +2,11 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: nginx-deployment
+  namespace: dev
   labels:
-    app: nginx-deployment-v1
+    app: nginx-deployment
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
       app: nginx
@@ -20,3 +21,7 @@ spec:
         ports:
         - name: http
           containerPort: 80
+        - name: https
+          containerPort: 443
+        - name: thrift
+          containerPort: 8000
