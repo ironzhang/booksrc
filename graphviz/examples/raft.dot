@@ -1,0 +1,22 @@
+digraph G {
+	nodesep=0.4
+	ranksep=0.4
+	rankdir=TB
+	splines=true
+
+	label="raft 日志复制原理: 半数以上节点写入成功才算成功"
+	labelloc="t"
+
+	node[shape=rect style="rounded,filled"]
+
+	a[style=invis]
+	leader[label="Leader" fillcolor="deepskyblue2"]
+	follower1[label="Follower" fillcolor="yellow"]
+	follower2[label="Follower" fillcolor="yellow"]
+	follower3[label="Follower" fillcolor="yellow"]
+	follower4[label="Follower" fillcolor="yellow"]
+
+	a -> leader[label="w"]
+	leader -> {follower1, follower2}
+	leader -> {follower3, follower4}[style="dashed"]
+}
